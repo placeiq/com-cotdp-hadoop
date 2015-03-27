@@ -1,21 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cotdp.hadoop</groupId>
-	<artifactId>com-cotdp-hadoop</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+    <artifactId>com-cotdp-hadoop</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
     <name>com-cotdp-hadoop</name>
-	<url>http://cotdp.com/</url>
+    <url>http://cotdp.com/</url>
 
     <properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cloudera.hadoop.version>2.6.0</cloudera.hadoop.version>
-	</properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cloudera.hadoop.version>2.5.0-cdh5.2.1</cloudera.hadoop.version>
+        <apache.hadoop.version>0.20.205.0</apache.hadoop.version>
+        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <junit.version>3.8.1</junit.version>
+        <jackson.mapper.version>1.9.8</jackson.mapper.version>
+    </properties>
     <profiles>
         <profile>
             <id>apache</id>
+            <properties>
+                <hadoop.distro>apache</hadoop.distro>
+            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -23,7 +31,8 @@
                 <dependency>
                     <groupId>org.apache.hadoop</groupId>
                     <artifactId>hadoop-core</artifactId>
-                    <version>0.20.205.0</version>
+                    <version>${apache.hadoop.version}</version>
+                    <scope>provided</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -42,17 +51,47 @@
             </dependencies>
         </profile>
     </profiles>
-	<dependencies>
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.9.8</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.mapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <configuration>
+                            <classifier>${hadoop.distro}</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
