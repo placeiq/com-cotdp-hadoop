@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6e8aa328-844a-4fbd-82e1-af98ae8a68c9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com-cotdp-hadoop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53846157" vertical-offset="165" max-vertical-offset="945">
-              <caret line="39" column="29" selection-start-line="38" selection-start-column="43" selection-end-line="39" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.5" vertical-offset="180" max-vertical-offset="960">
+              <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -314,8 +315,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53846157" vertical-offset="165" max-vertical-offset="945">
-          <caret line="39" column="29" selection-start-line="38" selection-start-column="43" selection-end-line="39" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.5" vertical-offset="180" max-vertical-offset="960">
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
           <folding />
         </state>
       </provider>
